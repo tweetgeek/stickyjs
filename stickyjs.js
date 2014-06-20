@@ -21,12 +21,10 @@
 		sticked = [],
 		windowHeight = $window.height(),
 		scroller = function() {
-			console.log('scroller');
 			var scrollTop = $window.scrollTop(),
 				documentHeight = $document.height(),
 				dwh = documentHeight - windowHeight,
 				extra = (scrollTop > dwh) ? dwh - scrollTop : 0;
-
 
 			for (var i = 0; i < sticked.length; i++) {
 				var s = sticked[i],
@@ -34,7 +32,7 @@
 					etse = elementTop - s.topSpacing - extra,
 					newStop = s.stopper != null ? $(s.stopper).position().top + $(s.stopper).height() : null,
 					newBottom = s.stickyElement.offset().top - s.stickyElement.height(),
-					isStop = (scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0;
+					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0) : false;
 				if (scrollTop <= etse) {
 					if (s.currentTop !== null) {
 						s.stickyElement
