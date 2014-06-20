@@ -71,7 +71,6 @@
 		methods = {
 			init: function(options) {
 				var o = $.extend(defaults, options);
-				console.log(o);
 				return this.each(function() {
 					var stickyElement = $(this);
 
