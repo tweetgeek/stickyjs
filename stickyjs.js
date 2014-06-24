@@ -8,7 +8,7 @@
 
 	var defaults = {
 			zIndex: null,
-			stopper: '.sticky-stopper',
+			stopper: null,
 			topSpacing: 0,
 			bottomSpacing: 0,
 			className: 'is-sticky',
