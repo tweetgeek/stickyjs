@@ -2,6 +2,7 @@
 // =============
 // Author: Sebastian Dawidziak <sebastian@dawidziak.eu>
 // Created: 6/20/2014
+// Version: 0.0.6
 
 (function($) {
 	"use strict";
@@ -30,11 +31,11 @@
 				var s = sticked[i],
 					elementTop = s.stickyWrapper.offset().top,
 					etse = elementTop - s.topSpacing - extra,
-					inside = s.stopper != null ? $(s.stopper).find(s.className).length > 0 : false,
-					newStop = s.stopper != null ? ( inside ?  $(s.stopper).position().top + $(s.stopper).height() : $(s.stopper).position().top ) : null,
+					inside = s.stopper != null ? $(s.stopper).find(s.stickyElement).length > 0 : false,
+					newStop = s.stopper != null ? ( inside ?  $(s.stopper).offset().top + $(s.stopper).outerHeight(true) : $(s.stopper).offset().top ) : null,
 					newBottom = s.stickyElement.offset().top - s.stickyElement.outerHeight(true),
-					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) > 0) : false;
-
+					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0) : false;
+					console.log(s.stickyElement.outerHeight(), s.stickyElement.outerHeight(true));
 				if (scrollTop <= etse) {
 					if (s.currentTop !== null) {
 						s.stickyElement
@@ -44,11 +45,11 @@
 						s.currentTop = null;
 					}
 				} else {
-					var newTop = documentHeight - s.stickyElement.outerHeight() - s.topSpacing - s.bottomSpacing - scrollTop - extra;
+					var newTop = documentHeight - s.stickyElement.outerHeight(true) - s.topSpacing - s.bottomSpacing - scrollTop - extra;
 					if (newTop == 0) {
 						newTop = newTop + s.topSpacing;
 					} else if (isStop) {
-						newTop = (newStop - scrollTop) - s.stickyElement.height() + s.topSpacing;
+						newTop = (newStop - scrollTop) - s.stickyElement.outerHeight(true);
 					} else {
 						newTop = s.topSpacing;
 					}
