@@ -30,9 +30,11 @@
 				var s = sticked[i],
 					elementTop = s.stickyWrapper.offset().top,
 					etse = elementTop - s.topSpacing - extra,
-					newStop = s.stopper != null ? $(s.stopper).position().top + $(s.stopper).height() : null,
-					newBottom = s.stickyElement.offset().top - s.stickyElement.height(),
-					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0) : false;
+					inside = s.stopper != null ? $(s.stopper).find(s.className).length > 0 : false,
+					newStop = s.stopper != null ? ( inside ?  $(s.stopper).position().top + $(s.stopper).height() : $(s.stopper).position().top ) : null,
+					newBottom = s.stickyElement.offset().top - s.stickyElement.outerHeight(true),
+					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) > 0) : false;
+
 				if (scrollTop <= etse) {
 					if (s.currentTop !== null) {
 						s.stickyElement
