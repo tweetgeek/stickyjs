@@ -35,7 +35,6 @@
 					newStop = s.stopper != null ? ( inside ?  $(s.stopper).offset().top + $(s.stopper).outerHeight(true) : $(s.stopper).offset().top ) : null,
 					newBottom = s.stickyElement.offset().top - s.stickyElement.outerHeight(true),
 					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0) : false;
-					console.log(s.stickyElement.outerHeight(), s.stickyElement.outerHeight(true));
 				if (scrollTop <= etse) {
 					if (s.currentTop !== null) {
 						s.stickyElement
