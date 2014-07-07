@@ -91,7 +91,7 @@
 					}
 
 					stickyElement.parent().css({
-						width: stickyElement.outerWidth(),
+						width: stickyElement.outerWidth()
 					});
 
 					if (stickyElement.css("float") == "right") {
