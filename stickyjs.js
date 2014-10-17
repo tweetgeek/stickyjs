@@ -84,14 +84,14 @@
 
 					if (o.center) {
 						stickyElement.parent().css({
-							width: wrapper.outerWidth(),
+							width: wrapper.outerWidth(true),
 							marginLeft: "auto",
 							marginRight: "auto"
 						});
 					}
 
 					stickyElement.parent().css({
-						width: stickyElement.outerWidth()
+						width: stickyElement.outerWidth(true)
 					});
 
 					if (stickyElement.css("float") == "right") {
@@ -103,7 +103,7 @@
 					}
 
 					var stickyWrapper = stickyElement.parent();
-					stickyWrapper.css('height', stickyElement.outerHeight());
+					stickyWrapper.css('height', stickyElement.outerHeight(true));
 					sticked.push({
 						zIndex: o.zIndex,
 						stopper: o.stopper,
