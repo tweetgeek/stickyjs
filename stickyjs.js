@@ -115,6 +115,10 @@
 						className: o.className,
 						getWidthFrom: o.getWidthFrom
 					});
+
+					if (typeof o.getWidthFrom !== 'undefined') {
+						stickyElement.css('width', $(o.getWidthFrom).outerWidth(true));
+					}
 				});
 			},
 			update: scroller,
