@@ -58,7 +58,7 @@
 							.css('top', newTop);
 
 						if (typeof s.getWidthFrom !== 'undefined') {
-							s.stickyElement.css('width', $(s.getWidthFrom).outerWidth(true));
+							s.stickyElement.css('width', $(s.getWidthFrom).width());
 						}
 
 						s.stickyElement.parent().addClass(s.className);
@@ -117,7 +117,7 @@
 					});
 
 					if (typeof o.getWidthFrom !== 'undefined') {
-						stickyElement.css('width', $(o.getWidthFrom).outerWidth(true));
+						stickyElement.css('width', $(o.getWidthFrom).width());
 					}
 				});
 			},
