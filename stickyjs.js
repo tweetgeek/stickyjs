@@ -32,7 +32,7 @@
 					elementTop = s.stickyWrapper.offset().top,
 					etse = elementTop - s.topSpacing - extra,
 					inside = s.stopper != null ? $(s.stopper).find(s.stickyElement).length > 0 : false,
-					newStop = s.stopper != null ? ( inside ?  $(s.stopper).offset().top + $(s.stopper).outerHeight(true) : $(s.stopper).offset().top ) : null,
+					newStop = s.stopper != null ? (inside ? $(s.stopper).offset().top + $(s.stopper).outerHeight(true) : $(s.stopper).offset().top) : null,
 					newBottom = s.stickyElement.offset().top - s.stickyElement.outerHeight(true),
 					isStop = s.stopper != null ? ((scrollTop - newStop) + (scrollTop - newBottom) + s.topSpacing > 0) : false;
 				if (scrollTop <= etse) {
@@ -58,7 +58,7 @@
 							.css('top', newTop);
 
 						if (typeof s.getWidthFrom !== 'undefined') {
-							s.stickyElement.css('width', $(s.getWidthFrom).width());
+							s.stickyElement.css('width', $(s.getWidthFrom).outerWidth(true));
 						}
 
 						s.stickyElement.parent().addClass(s.className);
